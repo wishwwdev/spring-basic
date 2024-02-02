@@ -3,6 +3,8 @@ package com.woolim.basic.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.woolim.basic.dto.request.PostRequestBodyDto;
+import com.woolim.basic.service.MainService;
+import com.woolim.basic.service.implement.MainServiceImplement;
 
 import jakarta.validation.Valid;
 
@@ -29,10 +31,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("")
 public class MainController {
 
+  private MainService mainService;
+
+  public MainController(MainService mainService) {
+    this.mainService = mainService;
+  }
+
   // description: @RequestMapping 중 Get method에 대해서만 인식 //
   @GetMapping("/")
   public String getMethod() {
-    return "get method!";
+    return mainService.hello();
   }
 
   // description: @RequestMapping 중 Post method에 대해서만 인식 //
