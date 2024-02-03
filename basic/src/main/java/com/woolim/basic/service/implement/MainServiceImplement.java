@@ -31,7 +31,7 @@ public class MainServiceImplement implements MainService {
 
   @Override
   public String getRepository() {
-    List<UserEntity> userEntity = userRepository.findByNickname("hong");
+    List<UserEntity> userEntity = userRepository.findByNicknameOrAddress("hong", "서울");
     return userEntity.toString();
   }
 }
