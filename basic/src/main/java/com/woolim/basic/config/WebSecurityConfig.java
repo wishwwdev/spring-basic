@@ -38,7 +38,7 @@ public class WebSecurityConfig {
       // description: API의 URL 패턴에 따라 인증 여부 지정 //
       .authorizeHttpRequests()
       // description: 특정 패턴에 대하여 인증 없이 진행 가능하도록 허용 //
-      .requestMatchers("/").permitAll()
+      .requestMatchers("/", "/auth/match").permitAll()
       // description: 특정 메서드에 대하여 인증 없이 진행 가능하도록 허용 //
       .requestMatchers(HttpMethod.GET).permitAll()
       // description: 특정 메서드에 해당하는 특정 패턴에 대하여 인증없이 진행 가능하도록 허용 //
