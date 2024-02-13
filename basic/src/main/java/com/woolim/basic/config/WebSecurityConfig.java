@@ -3,6 +3,7 @@ package com.woolim.basic.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -26,8 +27,8 @@ public class WebSecurityConfig {
   protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
 
     httpSecurity
-      // description: cors 정책 설정 - 미사용 //
-      .cors(cors ->cors.disable())
+      // description: cors 정책 설정 - 기본 설정으로 사용 //
+      .cors(Customizer.withDefaults())
       // description: csrf 보안 설정 - 미사용 //
       .csrf(crsf ->crsf.disable())
       // description: basic authentication 설정 - 미사용 //
